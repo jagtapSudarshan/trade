@@ -1,0 +1,158 @@
+html, body{
+    height: 100% !important;
+    padding: 0px;
+    margin:0;
+    background-color:#65737A;
+}
+
+.full-height{
+    display:table;
+}
+
+.full-height-panel{
+    display:table-cell;
+}
+
+.panel{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+	margin-bottom: 1.25rem;
+	padding: 0.7rem;
+	background: #E3E7E7;
+	color: #333333;
+}
+
+.content-panel{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+	margin-bottom: 0.5rem;
+	padding: 0.7rem;
+	background: #65737A;
+	color: #FFFFFF;
+}
+
+.content-panel.radius{
+	border-radius: 5px;
+}
+
+.columns{
+	padding-left: 0.6rem;
+	padding-right: 0.6rem;
+}
+
+.page-title-panel{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d8d8d8;
+	padding: 0.7rem;
+	background: #E3E7E7;
+	border-radius: 5px 5px 0px 0px;
+	margin-bottom:0.3rem;
+}
+
+.btn-gray{
+	background-color:#65737A;
+	color:#FFFFFF;
+	border-radius: 5px;
+}
+
+button:hover, button:focus, .button:hover, .button:focus{
+    background-color: #65737A;
+}
+
+select {
+    margin: 0px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+    margin: 0px;
+    height: 1.5rem;
+}
+
+.select-label{
+	padding-top: 7px;
+}
+
+.alert-text{
+	color: #FF0000;
+}
+
+.img-help{
+	height: 45px !important;
+}
+
+.help-label{
+	padding-top: 13px;
+	font-size: 18px;
+    font-weight: 600;
+    color: #65737A;
+}
+
+.prompts-table{
+	background-color: #65737A;
+    border-color: #65737A;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.buttons-table{
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.buttons-table-td{
+    background-color: #65737A;
+    border-color: #65737A;
+    border-radius: 5px;
+}
+
+.buttons-table-blank-td{
+	background-color: transparent;
+    border-color: transparent;
+    padding: 5px;
+}
+
+.prompts-table tr td,.buttons-table tr td{
+	color: #FFFFFF;
+}
+
+.prompts-table tr:nth-of-type(even) {
+    background: #65737A;
+}
+
+
+
+/*********************** HELPER CSS START ***************************/
+
+/**************** MARGIN HELPERS START *******************/
+.margin-top-5{
+    margin-bottom: 5px !important;
+}
+.margin-bottom-5{
+	margin-bottom: 5px !important;
+}
+.margin-top-10{
+    margin-top: 10px !important;
+}
+.margin-bottom-10{
+    margin-top: 10px !important;
+}
+/***************** MARGIN HELPERS END ********************/
+
+/*********************** HELPER CSS END *****************************/
