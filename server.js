@@ -41,8 +41,10 @@ MongoClient.connect(db_url, (err, database) => {
   })
 })
 
-
 app.get('/', function(req, res) {
+   res.sendFile('/Users/sudarshanjagtap/Documents/Sud/Document/BackendAndDemos/NodeWithMongo/web' + '/index.html')
+})
+app.get('/optiondata', function(req, res) {
   // res.sendFile('/Users/sudarshanjagtap/Documents/Sud/Document/BackendAndDemos/NodeWithMongo/web' + '/2.txt')
   var ip = (req.headers['x-forwarded-for'] ||
   req.connection.remoteAddress ||
@@ -76,9 +78,9 @@ app.get('/', function(req, res) {
     var thirdOBJ = {"TIME":currenttime,"CALL OI":third.OI,"CALL CHANGE OI":third["Chng in OI"],"CALL LTP":third.LTP,"STRIKE PRICE":third["Strike Price"],"PUT LTP":third.LTP_2,"PUT CHANGE OI":third["Chng in OI_2"],"PUT OI":third.OI_2}
     var fourthOBJ = {"TIME":currenttime,"CALL OI":fourth.OI,"CALL CHANGE OI":fourth["Chng in OI"],"CALL LTP":fourth.LTP,"STRIKE PRICE":fourth["Strike Price"],"PUT LTP":fourth.LTP_2,"PUT CHANGE OI":fourth["Chng in OI_2"],"PUT OI":fourth.OI_2}
     var fifthOBJ = {"TIME":currenttime,"CALL OI":fifth.OI,"CALL CHANGE OI":fifth["Chng in OI"],"CALL LTP":fifth.LTP,"STRIKE PRICE":fifth["Strike Price"],"PUT LTP":fifth.LTP_2,"PUT CHANGE OI":fifth["Chng in OI_2"],"PUT OI":fifth.OI_2}
-    var emptyOBJ = {"TIME":currenttime,"CALL OI":"--","CALL CHANGE OI":"--","CALL LTP":"--","STRIKE PRICE":"--","PUT LTP":"--","PUT CHANGE OI":"--","PUT OI":"--"}
+    var emptyOBJ = {"TIME":"--","CALL OI":"--","CALL CHANGE OI":"--","CALL LTP":"--","STRIKE PRICE":"--","PUT LTP":"--","PUT CHANGE OI":"--","PUT OI":"--"}
     
-    var jsonData = [firstOBJ,secondOBJ,thirdOBJ,fourthOBJ,fifthOBJ];
+    var jsonData = [firstOBJ,secondOBJ,thirdOBJ,fourthOBJ,fifthOBJ,emptyOBJ];
     res.send(jsonData);
     
   
