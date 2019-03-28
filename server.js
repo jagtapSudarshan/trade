@@ -71,7 +71,7 @@ app.get('/optiondata', function(req, res) {
     var fourth = tableData[2][spIndex+1];
     var fifth = tableData[2][spIndex+2];
     var datenow = new Date();
-    var currenttime = datenow.toLocaleTimeString();
+    var currenttime = getTime(5,30);
 
     var firstOBJ = {"TIME":currenttime,"CALL OI":first.OI,"CALL CHANGE OI":first["Chng in OI"],"CALL LTP":first.LTP,"STRIKE PRICE":first["Strike Price"],"PUT LTP":first.LTP_2,"PUT CHANGE OI":first["Chng in OI_2"],"PUT OI":first.OI_2}
     var secondOBJ = {"TIME":currenttime,"CALL OI":second.OI,"CALL CHANGE OI":second["Chng in OI"],"CALL LTP":second.LTP,"STRIKE PRICE":second["Strike Price"],"PUT LTP":second.LTP_2,"PUT CHANGE OI":second["Chng in OI_2"],"PUT OI":second.OI_2}
@@ -100,6 +100,65 @@ app.get('/optiondata', function(req, res) {
  console.log(ip);
   // res.send({'response':'APPA ROCKS'}) 
 })
+
+function getTime (addHour, addMin){
+  addHour = (addHour?addHour:0);
+  addMin = (addMin?addMin:0);
+  var time = new Date(new Date().getTime());
+  var AM = true;
+  var ndble = 0;
+  var hours, newHour, overHour, newMin, overMin;
+  //change form 24 to 12 hour clock
+  if(time.getHours() >= 13){
+      hours = time.getHours() - 12;
+      AM = (hours>=12?true:false);
+  }else{
+      hours = time.getHours();
+      AM = (hours>=12?false:true);
+  }
+  //get the current minutes
+  var minutes = time.getMinutes();
+  // set minute
+  if((minutes+addMin) >= 60 || (minutes+addMin)<0){
+      overMin = (minutes+addMin)%60;
+      overHour = Math.floor((minutes+addMin-Math.abs(overMin))/60);
+      if(overMin<0){
+          overMin = overMin+60;
+          overHour = overHour-Math.floor(overMin/60);
+      }
+      newMin = String((overMin<10?'0':'')+overMin);
+      addHour = addHour+overHour;
+  }else{
+      newMin = minutes+addMin;
+      newMin = String((newMin<10?'0':'')+newMin);
+  }
+  //set hour
+  if(( hours+addHour>=13 )||( hours+addHour<=0 )){
+      overHour = (hours+addHour)%12;
+      ndble = Math.floor(Math.abs((hours+addHour)/12));
+      if(overHour<=0){
+          newHour = overHour+12;
+          if(overHour == 0){
+              ndble++;
+          }
+      }else{
+          if(overHour ==0 ){
+              newHour = 12;
+              ndble++;
+          }else{
+              ndble++;
+              newHour = overHour;
+          }
+      }
+      newHour = (newHour<10?'0':'')+String(newHour);
+      AM = ((ndble+1)%2===0)?AM:!AM;
+  }else{
+      AM = (hours+addHour==12?!AM:AM);
+      newHour = String((Number(hours)+addHour<10?'0':'')+(hours+addHour));
+  }
+  var am = (AM)?'AM':'PM';
+  return new Array(newHour, newMin, am);
+};
 
 // Allow cross origin resource sharing (CORS) within our application
 app.use(function(req, res, next) {
