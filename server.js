@@ -71,8 +71,8 @@ app.get('/optiondata', function(req, res) {
     var fourth = tableData[2][spIndex+1];
     var fifth = tableData[2][spIndex+2];
     var datenow = new Date();
-    var currenttime = getTime(5,30);
-
+    var time = getTime(5,30);
+    var currenttime = time[0]+":"+time[1]+":"+time[2]
     var firstOBJ = {"TIME":currenttime,"CALL OI":first.OI,"CALL CHANGE OI":first["Chng in OI"],"CALL LTP":first.LTP,"STRIKE PRICE":first["Strike Price"],"PUT LTP":first.LTP_2,"PUT CHANGE OI":first["Chng in OI_2"],"PUT OI":first.OI_2}
     var secondOBJ = {"TIME":currenttime,"CALL OI":second.OI,"CALL CHANGE OI":second["Chng in OI"],"CALL LTP":second.LTP,"STRIKE PRICE":second["Strike Price"],"PUT LTP":second.LTP_2,"PUT CHANGE OI":second["Chng in OI_2"],"PUT OI":second.OI_2}
     var thirdOBJ = {"TIME":currenttime,"CALL OI":third.OI,"CALL CHANGE OI":third["Chng in OI"],"CALL LTP":third.LTP,"STRIKE PRICE":third["Strike Price"],"PUT LTP":third.LTP_2,"PUT CHANGE OI":third["Chng in OI_2"],"PUT OI":third.OI_2}
