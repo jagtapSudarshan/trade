@@ -41,6 +41,7 @@ MongoClient.connect(db_url, (err, database) => {
   })
 })
 
+
 app.get('/', function(req, res) {
    res.sendFile('/Users/sudarshanjagtap/Documents/Sud/Document/BackendAndDemos/NodeWithMongo/web' + '/index.html')
 })
