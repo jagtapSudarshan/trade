@@ -1,4 +1,0 @@
-function openCustomUrlInIFrame(){
-
-    alert('changePin');
-}
