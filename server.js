@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 const db_url = "mongodb://root:uniken123$@ds117336.mlab.com:17336/nodetestmongodb";
 
 var db
-var serverPort = 4000;
+var serverPort = 8080;
 var fs = require('fs');
 
 
