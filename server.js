@@ -53,7 +53,7 @@ app.get('/optiondata', function(req, res) {
   req.connection.socket.remoteAddress).split(",")[0];
 
   scraper
-  .get('https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=BANKNIFTY&date=2MAY2019')
+  .get('https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-9999&symbol=BANKNIFTY&symbol=BANKNIFTY&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17')
   .then(function(tableData) {
   
     var spotPrice = tableData[0][0][1].split(":")[1].split(" ")[2].split("\n")[0]
